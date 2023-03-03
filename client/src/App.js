@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { BrowserRouter, Routes, Navigate, Route } from "react-router-dom";
 import { themeSettings } from "theme";
 import { useMemo } from "react";
-import Portfolio from "scenes/portfolio"
+import Dashboard from "scenes/dashboard"
 import Layout from "scenes/layout";
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
           <CssBaseline />
           <Routes>
             <Route element={<Layout />}>
-              <Route path="/" element={<Navigate to ="/portfolio" replace />} />
-              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/" element={<Navigate to ="/dashboard" replace />} />
+              <Route path="/dashboard" element={<Dashboard />} />
             </Route>
           </Routes>
         </ThemeProvider>

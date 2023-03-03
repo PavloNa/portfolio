@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux';
 import { setMode } from 'state';
 import { AppBar, IconButton, Toolbar, useTheme } from '@mui/material';
 
-function NavBar() {
+const NavBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
     const dispatch = useDispatch();
     const theme = useTheme();
 
@@ -27,11 +27,22 @@ function NavBar() {
         <Toolbar sx= {{ justifyContent: "space-between"}}>
             {/* LEFT SIDE */}
             <FlexBetween>
-                <IconButton onClick={() => console.log('open sidebar')}>
+                <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                     <MenuIcon />
                 </IconButton>
             </FlexBetween>
+            {/* RIGHT SIDE */}
+            <FlexBetween gap="1.5rem">
+            <IconButton onClick={()=> dispatch(setMode())}>
+                {theme.palette.mode === 'dark' ? (
+                    <DarkModeOutlined sx={{fontSize: "25px"}} />
+                ) : (
+                    <LightModeOutlined sx={{fontSize: "25px"}} />
+                )}
+            </IconButton>
+        </FlexBetween>
         </Toolbar>
+        
     </AppBar>
   )
 }
