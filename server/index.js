@@ -5,7 +5,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
-import portfolioRoutes from "./routes/portfolio.js";
+import dashboardRoutes from "./routes/dashboard.js";
 
 /* CONFIGURATION */
 dotenv.config();
@@ -19,7 +19,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 /* ROUTES */
-app.use("/portfolio", portfolioRoutes);
+app.use("/dashboard", dashboardRoutes);
+app.use("/personal", personalRoutes);
+app.use("/experience", experienceRoutes);
 
 /* MONGOOSE */
 
