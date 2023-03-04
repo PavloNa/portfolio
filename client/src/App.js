@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Navigate, Route } from "react-router-dom";
 import { themeSettings } from "theme";
 import { useMemo } from "react";
 import Dashboard from "scenes/dashboard"
+import Geography from "scenes/geography"
 import Layout from "scenes/layout";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route element={<Layout />}>
               <Route path="/" element={<Navigate to ="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/geography" element={<Geography />} />
             </Route>
           </Routes>
         </ThemeProvider>

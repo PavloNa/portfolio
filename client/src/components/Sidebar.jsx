@@ -14,22 +14,14 @@ import {
   useTheme,
 } from "@mui/material";
 import {
-  SettingsOutlined,
   ChevronLeft,
   ChevronRightOutlined,
   HomeOutlined,
-  ShoppingCartOutlined,
-  Groups2Outlined,
-  ReceiptLongOutlined,
   PublicOutlined,
-  PointOfSaleOutlined,
-  TodayOutlined,
-  CalendarMonthOutlined,
-  AdminPanelSettingsOutlined,
-  TrendingUpOutlined,
-  PieChartOutlined,
   InfoOutlined,
   ContactPageOutlined,
+  SchoolOutlined,
+  TerminalOutlined,
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
@@ -65,11 +57,11 @@ const navItems = [
     },
     {
         text: "Skills",
-        icon: null
+        icon: <TerminalOutlined />
     },
     {
         text: "Education",
-        icon: null
+        icon: <SchoolOutlined />
     },
 ]
 
@@ -85,6 +77,7 @@ const Sidebar = ({
     const navigate = useNavigate();
     const theme = useTheme();
 
+
     useEffect(() => {
         setActive(pathname.substring(1));
     }, [pathname])
@@ -92,6 +85,7 @@ const Sidebar = ({
     <Box component="nav">
         {isSidebarOpen && (
             <Drawer
+                transitionDuration={9000}
                 open={isSidebarOpen}
                 onClose={() => setIsSidebarOpen(false)}
                 variant="persistent"
@@ -115,7 +109,7 @@ const Sidebar = ({
                                 <Typography variant="h3" fontWeight="bold">
                                     PAVLO NAZARCHUK
                                 </Typography>
-                                {(
+                                {!isNonMobile && (
                                     <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
                                         <ChevronLeft />
                                     </IconButton>

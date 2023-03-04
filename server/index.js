@@ -6,6 +6,13 @@ import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
 import dashboardRoutes from "./routes/dashboard.js";
+import personalRoutes from "./routes/personal.js";
+import experienceRoutes from "./routes/experience.js";
+
+/* DATA IMPORTS */
+import Language from "./models/Language.js";
+import { dataLanguage } from "./data/index.js";
+
 
 /* CONFIGURATION */
 dotenv.config();
@@ -31,4 +38,7 @@ mongoose.connect(process.env.MONGO_URL, {
     useUnifiedTopology: true,
 }).then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
+
+    {/* Language.insertMany(dataLanguage); */}
+
 }).catch((error => console.log(`${error} did not connect`)))
